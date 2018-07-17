@@ -42,3 +42,28 @@ function filter(arr, fn) {
 } 
 console.log(filter(myNames, name => name[0] === 'R')); 
 
+function hazardWarningCreator (typeOfWarning) {
+  let warningCounter = 0;
+  return function(location) {
+    warningCounter++;
+    console.log(`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    if (warningCounter === 1) {
+      `The ${typeOfWarning} hazard alert has triggered 1 time`;
+    } else {
+      console.log(`The ${typeOfWarning} hazard alert has triggered ${warningCounter} times today!`);
+    }
+  };
+}
+
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+const sharpTurn = hazardWarningCreator('Sharp turn ahead');
+const accidentAhead = hazardWarningCreator('Caution, wreck ahead');
+
+rocksWarning('Main St and Pacific Ave');
+rocksWarning('Centinela Ave and Olympic Blvd');
+sharpTurn('Main St and Pacific Ave');
+sharpTurn('Centinela Ave and Olympic Blvd');
+
+accidentAhead('Main St and Pacific Ave');
+accidentAhead('Centinela Ave and Olympic Blvd');
+
