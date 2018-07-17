@@ -67,3 +67,9 @@ sharpTurn('Centinela Ave and Olympic Blvd');
 accidentAhead('Main St and Pacific Ave');
 accidentAhead('Centinela Ave and Olympic Blvd');
 
+const turtleMoves = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]]; 
+const noNegs = turtleMoves.filter(innerArray => innerArray[0] > 0 && innerArray[1] > 0);
+const addSteps = turtleMoves.map(innerArray => innerArray[0] + innerArray[1]); 
+addSteps.forEach(function(num) {
+  console.log(num);
+}); 
