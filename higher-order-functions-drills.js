@@ -90,20 +90,16 @@ addSteps.forEach(function(num) {
 const sentence =  'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
 
 function decodedSentence (decodeSentence) {
-  const sentArr = decodeSentence.split(' ');
-  let mapArr = [];
-  sentArr.forEach(function(word) {
-    if (word.length === 3) {
-      mapArr.push(' ');
-    } else {
-      mapArr.push(word[word.length - 1].toUpperCase());
-    }
-  });
-  const reducer = function (accumulator, currentValue) {
-    return accumulator.concat(currentValue);
-  };
-  let decodedWord = mapArr.reduce(reducer);
-  return decodedWord;
+  const decodedSentence = decodeSentence
+    .split(' ')
+    .reduce(function(accum, word) {
+      if (word.length === 3) {
+        return accum += ' ';
+      } else {
+        return accum += word[word.length-1].toUpperCase();
+      }
+    }, '');
+  return decodedSentence;
 }
 
 console.log(decodedSentence(sentence));
